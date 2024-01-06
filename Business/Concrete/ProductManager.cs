@@ -13,6 +13,7 @@ namespace Business.Concrete
     public class ProductManager : IproductService
     {
         IProductDal _productDal;
+        IOrderDal _orderDal;
 
         public ProductManager(IProductDal productDal)
         {
@@ -34,5 +35,7 @@ namespace Business.Concrete
         {
             return _productDal.GetAll(p => p.UnitPrice >= min && p.UnitPrice <= max);
         }
+
+      
     }
 }
