@@ -7,11 +7,21 @@ using DataAccess.Concrete.InMemory;
 //SOLID
 //Open Closed Principle
 
-ProductManager prdouctManager = new ProductManager(new EfProductDal());
+//ProductTest();
+CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
 
-foreach (var product in prdouctManager.GetAllByCategoryId(2))
+foreach(var category in categoryManager.GetAll())
 {
-Console.WriteLine(product.ProductName);
-}
 
+    Console.WriteLine(category.CategoryName);
+}
+static void ProductTest()
+{
+    ProductManager prdouctManager = new ProductManager(new EfProductDal());
+
+    foreach (var product in prdouctManager.GetAllByCategoryId(2))
+    {
+        Console.WriteLine(product.ProductName);
+    }
+}
 
